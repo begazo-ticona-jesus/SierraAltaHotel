@@ -1,0 +1,58 @@
+---
+const rooms = [
+  {
+    image: "/images/images_hotel/image1.webp",
+    title: "Habitación Deluxe",
+    description:
+      "Una habitación espaciosa con vistas impresionantes y todas las comodidades modernas.",
+  },
+  {
+    image: "/images/images_hotel/image2.webp",
+    title: "Suite Presidencial",
+    description:
+      "La suite más lujosa con sala de estar, comedor y una vista panorámica.",
+  },
+  {
+    image: "/images/images_hotel/image3.webp",
+    title: "Habitación Estándar",
+    description:
+      "Una habitación cómoda y asequible con todas las comodidades necesarias.",
+  },
+];
+---
+
+<section class="rooms-section py-8 mt-8">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8">Tipos de Habitaciones</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        rooms.map((room) => (
+          <div class="room-card bg-white shadow-md rounded-lg overflow-hidden">
+            <img
+              src={room.image}
+              alt={room.title}
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2">{room.title}</h3>
+              <p class="text-gray-700">{room.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .rooms-section {
+    background-color: #f9f9f9;
+    margin-top: 2rem;
+  }
+  .room-card img {
+    transition: transform 0.3s ease;
+  }
+  .room-card:hover img {
+    transform: scale(1.05);
+  }
+</style>

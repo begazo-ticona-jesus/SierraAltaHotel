@@ -1,0 +1,45 @@
+<header
+  id="main-header"
+  class="fixed top-0 z-10 flex items-center justify-center w-full transition-colors duration-300"
+>
+  <div class="w-full">
+    <nav
+      class="flex justify-center space-x-10 py-4 text-base font-semibold leading-tight text-gray-50"
+    >
+      <a href="/#about" class="hover:text-color-primary">Nosotros</a>
+      <a href="/#rooms" class="hover:text-color-primary">Habitaciones</a>
+      <a href="/#services" class="hover:text-color-primary">Servicios</a>
+      <a href="/#contact" class="hover:text-color-primary">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* Estilos para el header cuando se hace scroll */
+  #main-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.98);
+    color: #958452; /* Usar color-primary-shadow */
+  }
+
+  #main-header.scrolled nav a {
+    color: #958452; /* Usar color-primary-shadow */
+  }
+
+  #main-header.scrolled nav a:hover {
+    color: rgba(0, 0, 0, 0.9);
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("main-header");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  });
+</script>

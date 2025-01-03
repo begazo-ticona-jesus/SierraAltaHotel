@@ -1,0 +1,163 @@
+<div class="carousel-container">
+  <div class="accordion-wrapper">
+    <details class="accordion-item">
+      <summary>
+        <img src="/images/images_hotel/image1.webp" alt="Imagen 1" />
+      </summary>
+      <div class="details-content-wrapper">
+        <img src="/images/images_hotel/image1.webp" alt="Imagen 1 Expandida" />
+      </div>
+    </details>
+
+    <details class="accordion-item">
+      <summary>
+        <img src="/images/images_hotel/image2.webp" alt="Imagen 2" />
+      </summary>
+      <div class="details-content-wrapper">
+        <img src="/images/images_hotel/image2.webp" alt="Imagen 2 Expandida" />
+      </div>
+    </details>
+
+    <details class="accordion-item">
+      <summary>
+        <img src="/images/images_hotel/image3.webp" alt="Imagen 3" />
+      </summary>
+      <div class="details-content-wrapper">
+        <img src="/images/images_hotel/image3.webp" alt="Imagen 3 Expandida" />
+      </div>
+    </details>
+  </div>
+</div>
+
+<style>
+  summary {
+    list-style: none; /* Oculta el marcador predeterminado */
+  }
+  /* Contenedor para centrar el carrusel */
+  .carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ocupa todo el ancho de la ventana */
+    margin: 0 auto; /* Centrado horizontal */
+    position: relative; /* Posicionamiento relativo para ajustar su posición */
+    top: -30px; /* Ajusta este valor para sobreponerlo al contenido anterior */
+    z-index: 2; /* Asegura que esté sobre el contenido previo */
+  }
+
+  /* Estilos del carrusel */
+  .accordion-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  details {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    color: white;
+    height: 20rem; /* Tamaño constante para el alto */
+    border-radius: 1rem;
+    overflow: hidden;
+    width: 10rem; /* Tamaño de las imágenes en la barra */
+    transition: width 0.15s linear;
+    box-sizing: border-box;
+  }
+
+  details summary {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+  }
+
+  details summary img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+  }
+
+  details[open] summary img {
+    filter: brightness(0.7); /* Imagen oscurecida cuando está expandida */
+  }
+
+  .details-content-wrapper {
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  details[open] {
+    width: 30rem; /* Solo cambia el ancho cuando está expandido */
+  }
+
+  details[open] .details-content-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  details[open] ~ details:not([open]) {
+    width: 10rem; /* Mantener el tamaño de las otras imágenes */
+  }
+
+  details[open] ~ details:not([open]) summary img {
+    filter: brightness(
+      1
+    ); /* Mantener las imágenes brillantes cuando no están abiertas */
+  }
+
+  .details-content-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* Agregar animación global al carrusel */
+  .accordion-wrapper {
+    animation: fadeIn 3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const accordions = document.querySelectorAll(".accordion-item");
+
+    accordions.forEach((acc) => {
+      acc.addEventListener("click", function () {
+        // Cierra todos los detalles primero
+        accordions.forEach((item) => {
+          if (item !== acc) {
+            item.removeAttribute("open");
+          }
+        });
+      });
+    });
+  });
+</script>

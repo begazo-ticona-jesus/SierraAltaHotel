@@ -1,30 +1,28 @@
 ---
 const rooms = [
   {
-    image: "/images/images_hotel/image1.webp",
-    title: "Habitación Deluxe",
-    description:
-      "Una habitación espaciosa con vistas impresionantes y todas las comodidades modernas.",
+    image: "/images/images_hotel/simple.webp",
+    title: "Habitación Simple",
+    description: "Una habitación cómoda para una persona, con todas las comodidades esenciales para una estancia agradable.",
   },
   {
-    image: "/images/images_hotel/image2.webp",
-    title: "Suite Presidencial",
-    description:
-      "La suite más lujosa con sala de estar, comedor y una vista panorámica.",
+    image: "/images/images_hotel/doble.webp",
+    title: "Habitación Doble",
+    description: "Espacio ideal para dos personas, con opción de camas separadas o una cama doble, y comodidades modernas.",
   },
   {
-    image: "/images/images_hotel/image3.webp",
-    title: "Habitación Estándar",
-    description:
-      "Una habitación cómoda y asequible con todas las comodidades necesarias.",
+    image: "/images/images_hotel/matrimonial.webp",
+    title: "Habitación Matrimonial",
+    description: "Una habitación diseñada para parejas, con una cama matrimonial amplia y un ambiente cálido y acogedor.",
   },
 ];
+
 ---
 
-<section class="rooms-section py-8 mt-8">
+<section id="rooms" class="rooms-section py-8">
   <div class="container mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-8">Tipos de Habitaciones</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <h2 class="text-4xl text-color-primary-shadow font-bold text-center mt-10 mb-16">Nuestras Habitaciones</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-8">
       {
         rooms.map((room) => (
           <div class="room-card bg-white shadow-md rounded-lg overflow-hidden">
@@ -34,8 +32,8 @@ const rooms = [
               class="w-full h-48 object-cover"
             />
             <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">{room.title}</h3>
-              <p class="text-gray-700">{room.description}</p>
+              <h3 class="text-2xl text-color-primary font-semibold mb-2">{room.title}</h3>
+              <p class="text-lg text-gray-950">{room.description}</p>
             </div>
           </div>
         ))
@@ -47,7 +45,6 @@ const rooms = [
 <style>
   .rooms-section {
     background-color: #f9f9f9;
-    margin-top: 2rem;
   }
   .room-card img {
     transition: transform 0.3s ease;

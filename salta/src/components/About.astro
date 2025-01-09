@@ -1,0 +1,48 @@
+---
+
+const hotelDescription = `
+  Somos Hostal Sierra Alta Colca, tu segundo hogar en Chivay. Hostal Sierra Alta Colca tiene como objetivo conseguir que tu visita sea lo más relajante y agradable posible, razón por la que tantos huéspedes siguen volviendo año tras año.
+
+  Las habitaciones de Hostal Sierra Alta Colca ofrecen televisor de pantalla plana.
+
+  Hostal Sierra Alta Colca te acerca a lo mejor de Chivay, tratando de que disfrutes de una estancia relajante y agradable.
+`;
+
+const latitude = -15.6375025;
+const longitude = -71.602521;
+---
+<section id="about" class="about-section py-8">
+  <div class="container mx-auto">
+    <h2 class="text-4xl text-color-primary-shadow font-bold text-center mt-10 mb-8">Sobre Nosotros</h2>
+    <div class="flex flex-col md:flex-row items-center space-y-20 md:space-y-0 md:space-x-8 mx-40">
+      <div class="md:w-1/2">
+        <p class="text-lg text-gray-700 leading-relaxed">{hotelDescription}</p>
+      </div>
+      <div class="md:w-1/2">
+        <img src="/images/images_hotel/image3.webp" alt="Hostal Sierra Alta Colca" class="w-full h-auto object-cover rounded-lg shadow-lg transform transition duration-500 hover:scale-105" />
+      </div>
+    </div>
+    <div class="mt-12">
+      <h3 class="text-3xl text-color-primary font-semibold text-center mb-4">Ubicación</h3>
+      <div class="flex justify-center">
+        <iframe
+          width="800"
+          height="500"
+          style="border:0"
+          loading="lazy"
+          allowfullscreen
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${longitude - 0.01}%2C${latitude - 0.01}%2C${longitude + 0.01}%2C${latitude + 0.01}&layer=mapnik&marker=${latitude},${longitude}&zoom=20`} 
+          class="rounded-lg shadow-lg"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+    .about-section {
+      background-color: #f9f9f9;
+      margin-top: 2rem;
+    }
+</style>
+  

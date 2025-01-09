@@ -6,10 +6,10 @@
     <nav
       class="flex justify-center space-x-10 py-4 text-base font-semibold leading-tight text-gray-50"
     >
-      <a href="/#about" class="hover:text-color-primary">Nosotros</a>
-      <a href="/#rooms" class="hover:text-color-primary">Habitaciones</a>
-      <a href="/#services" class="hover:text-color-primary">Servicios</a>
-      <a href="/#contact" class="hover:text-color-primary">Contacto</a>
+      <a href="#rooms" class="hover:text-color-primary">Habitaciones</a>
+      <a href="#services" class="hover:text-color-primary">Servicios</a>
+      <a href="#about" class="hover:text-color-primary">Nosotros</a>
+      <a href="#contact" class="hover:text-color-primary">Contacto</a>
     </nav>
   </div>
 </header>
@@ -40,6 +40,23 @@
       } else {
         header.classList.remove("scrolled");
       }
+    });
+
+    // Desplazamiento suave al hacer clic en los enlaces del header
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - header.offsetHeight,
+            behavior: 'smooth'
+          });
+        }
+      });
     });
   });
 </script>

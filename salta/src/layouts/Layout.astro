@@ -30,10 +30,21 @@ const { title } = Astro.props;
     :root {
       color-scheme: light;
     }
+
+    /* Estilo del scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Estilo de la barra de desplazamiento */
+    ::-webkit-scrollbar-thumb {
+      background-color: #B4A064;
+      border-radius: 999px;
+    }
+
     html {
       font-family: "Poiret One", system-ui, sans-serif;
     }
-    /* Main styles */
     body {
       display: flex;
       flex-direction: column;
@@ -48,11 +59,11 @@ const { title } = Astro.props;
       flex-direction: column;
       align-items: center;
       width: 100%;
-      margin-top: 4rem; /* Ajusta este valor según la altura del header */
+      margin-top: 4rem;
     }
 
     header {
-      width: 100vw; /* Asegura que siempre ocupe el ancho completo */
+      width: 100vw;
       position: fixed;
       left: 0;
     }

@@ -3,25 +3,31 @@ const rooms = [
   {
     image: "/images/images_hotel/simple.webp",
     title: "Habitación Simple",
-    description: "Una habitación cómoda para una persona, con todas las comodidades esenciales para una estancia agradable.",
+    description:
+      "Una habitación cómoda para una persona, con todas las comodidades esenciales para una estancia agradable.",
   },
   {
     image: "/images/images_hotel/doble.webp",
     title: "Habitación Doble",
-    description: "Espacio ideal para dos personas, con opción de camas separadas o una cama doble, y comodidades modernas.",
+    description:
+      "Espacio ideal para dos personas, con opción de camas separadas o una cama doble, y comodidades modernas.",
   },
   {
     image: "/images/images_hotel/matrimonial.webp",
     title: "Habitación Matrimonial",
-    description: "Una habitación diseñada para parejas, con una cama matrimonial amplia y un ambiente cálido y acogedor.",
+    description:
+      "Una habitación diseñada para parejas, con una cama matrimonial amplia y un ambiente cálido y acogedor.",
   },
 ];
-
 ---
 
 <section id="rooms" class="rooms-section py-8">
   <div class="container mx-auto">
-    <h2 class="text-4xl text-color-primary-shadow font-bold text-center mt-10 mb-16">Nuestras Habitaciones</h2>
+    <h2
+      class="text-4xl text-color-primary-shadow font-bold text-center mt-10 mb-16"
+    >
+      Nuestras Habitaciones
+    </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-8">
       {
         rooms.map((room) => (
@@ -32,7 +38,9 @@ const rooms = [
               class="w-full h-48 object-cover"
             />
             <div class="p-4">
-              <h3 class="text-2xl text-color-primary font-semibold mb-2">{room.title}</h3>
+              <h3 class="text-2xl text-color-primary font-semibold mb-2">
+                {room.title}
+              </h3>
               <p class="text-lg text-gray-950">{room.description}</p>
             </div>
           </div>
@@ -45,6 +53,11 @@ const rooms = [
 <style>
   .rooms-section {
     background-color: #f9f9f9;
+  }
+  .room-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
   .room-card img {
     transition: transform 0.3s ease;

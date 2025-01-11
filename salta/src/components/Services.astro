@@ -1,11 +1,15 @@
 ---
-
 const services = [
   {
     title: "Hospedaje",
     description: "Ofrecemos cómodas habitaciones con vistas a la ciudad.",
     image: "/images/images_hotel/image1.webp",
-    details: ["Cama King Size", "Wi-Fi gratuito", "Aire acondicionado", "TV por cable"],
+    details: [
+      "Cama King Size",
+      "Wi-Fi gratuito",
+      "Aire acondicionado",
+      "TV por cable",
+    ],
   },
   {
     title: "Desayuno",
@@ -21,75 +25,57 @@ const services = [
   },
   {
     title: "Transporte Turístico",
-    description: "Servicio de transporte turístico a varios lugares del valle del colca.",
+    description:
+      "Servicio de transporte turístico a varios lugares del valle del colca.",
     image: "/images/images_hotel/transporte.webp",
-    details: ["Vehículos cómodos", "Conductores profesionales", "Servicio puntual"],
+    details: [
+      "Vehículos cómodos",
+      "Conductores profesionales",
+      "Servicio puntual",
+    ],
   },
 ];
 ---
+
 <section id="services" class="services-section py-8">
-    <div class="container mx-auto">
-      <h2 class="text-4xl text-color-primary-shadow font-bold text-center mt-10 mb-16">
-        Nuestros Servicios
-      </h2>
-      <div class="flex flex-col space-y-20 mx-20">
-        {services.map((service, index) => (
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <h2
+      class="text-3xl sm:text-4xl text-color-primary-shadow font-bold text-center mt-10 mb-12"
+    >
+      Nuestros Servicios
+    </h2>
+    <div class="space-y-16">
+      {
+        services.map((service, index) => (
           <div
-            class={`flex flex-col mx-8 md:flex-row items-center ${
-              index % 2 === 0 ? '' : 'md:flex-row-reverse'
-            }`}
+            class={`flex flex-col md:flex-row items-center ${
+              index % 2 === 0 ? "" : "md:flex-row-reverse"
+            } space-y-8 md:space-y-0 md:space-x-6`}
           >
-            <div class="w-full md:w-1/2 h-72 relative mb-4 md:mb-0 md:mr-4 md:ml-4">
+            <div class="w-full md:w-1/2 h-56 sm:h-72 lg:h-80 relative">
               <img
                 src={service.image}
                 alt={service.title}
-                class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-700 ease-in-out"
+                class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-lg transform transition-transform duration-500 hover:scale-105"
               />
             </div>
-            <div class="service-details mx-8 md:w-1/2">
-              <h3 class="text-3xl text-color-primary font-semibold mb-2">
+            <div class="w-full md:w-1/2">
+              <h3 class="text-2xl sm:text-3xl text-color-primary font-semibold mb-2">
                 {service.title}
               </h3>
-              <p class="text-lg font-semibold text-gray-700 mb-4 animate-typewriter">
+              <p class="text-base sm:text-lg font-medium text-gray-700 mb-4">
                 {service.description}
               </p>
-              <ul class="list-disc list-inside">
+              <ul class="list-disc pl-5">
                 {service.details.map((detail) => (
-                  <li class="text-lg font-semibold pl-4 animate-typewriter-delay">{detail}</li>
+                  <li class="text-sm sm:text-base font-medium">{detail}</li>
                 ))}
               </ul>
             </div>
           </div>
-        ))}
-      </div>
+        ))
+      }
     </div>
+  </div>
 </section>
 
-<style>
-    @keyframes typewriter {
-      0% {
-        width: 0;
-      }
-      70% {
-        width: 100%;
-      }
-      100% {
-        width: 100%;
-      }
-    }
-
-    .animate-typewriter {
-        overflow: hidden;
-        white-space: nowrap;
-        width: max-content;
-        animation: typewriter 4s steps(40, end) infinite 6s;
-    }
-
-    .animate-typewriter-delay {
-        overflow: hidden;
-        white-space: nowrap;
-        width: max-content;
-        animation: typewriter 4s steps(40, end) infinite 6s;
-    }
-</style>
-  
